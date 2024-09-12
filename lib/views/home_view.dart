@@ -18,7 +18,8 @@ class _HomeViewState extends State<HomeView> {
       key: scaffoldKey,
       drawer: const CustomDrawer(),
       backgroundColor: const Color(0xffDBDBDB),
-      appBar: MediaQuery.sizeOf(context).width < 900
+      // (-32) for padding on layout builder 16 + 16, because constraints.maxWidth fetch the width of the paernt, but the mediaQuery fetch the width of the screen..
+      appBar: MediaQuery.sizeOf(context).width - 32 < 900
           ? AppBar(
               backgroundColor: Colors.black,
               leading: GestureDetector(
